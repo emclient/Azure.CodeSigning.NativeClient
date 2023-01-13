@@ -1,0 +1,52 @@
+name: Build and publish NuGet
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup .NET
+        uses: emclient/setup-dotnet@master
+        with:
+          channel: "6.0"
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+      - name: Install nbgv
+        continue-on-error: true
+        run: |
+          dotnet tool install -g nbgv --framework net6.0
+          dotnet tool update -g nbgv --framework net6.0
+      - name: Run nbgv
+        uses: dotnet/nbgv@master
+        id: nbgv
+        with:
+          setAllVars: true
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.3
+        with:
+          vs-prerelease: true
+      - name: Build x64
+        run: dotnet publish -r win-x64 -c Release
+      - name: Build arm64
+        run: dotnet publish -r win-arm64 -c Release
+      - name: Pack
+        run: nuget pack Azure.CodeSigning.NativeClient.nuspec -version ${{ env.NBGV_Version }}
+      - name: Publish
+        if: ${{ github.event_name == 'push' }}
+        env:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/emclient/index.json -n github
+          dotnet nuget push Azure.CodeSigning.NativeClient.${{ env.NBGV_Version }}.nupkg -s github --api-key ${{ secrets.GITHUB_TOKEN }}
+        
