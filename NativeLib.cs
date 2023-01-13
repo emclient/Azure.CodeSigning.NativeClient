@@ -94,7 +94,7 @@ namespace Azure.CodeSigning.NativeClient
                             {
                                 return Marshal.GetHRForLastWin32Error();
                             }
-                            if (CertAddCertificateContextToStore(new HCERTSTORE(hCertChainStore), issuerCertPtr, 1, ppSignerCert) == false)
+                            if (CertAddCertificateContextToStore(new HCERTSTORE(hCertChainStore), issuerCertPtr, 1, null) == false)
                             {
                                 return Marshal.GetHRForLastWin32Error();
                             }
