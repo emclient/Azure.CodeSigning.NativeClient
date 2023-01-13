@@ -1,0 +1,10 @@
+<Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
+  <Application>
+    <Assembly Name="Azure.CodeSigning.Dlib.Core" Dynamic="Required All" />
+    <Assembly Name="System.Diagnostics.DiagnosticSource" Dynamic="Required All" />
+    <Assembly Name="System.Text.Json">
+      <Type Name="System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1[[Azure.CodeSigning.Dlib.Core.Models.Status,Azure.CodeSigning.Dlib.Core]]" Dynamic="Required All" />
+      <Type Name="System.Text.Json.Serialization.Converters.EnumConverter`1[[Azure.CodeSigning.Dlib.Core.Models.Status,Azure.CodeSigning.Dlib.Core]]" Dynamic="Required All" />
+    </Assembly>
+  </Application>
+</Directives>

@@ -1,0 +1,8 @@
+CertAddCertificateContextToStore
+CertDuplicateCertificateContext
+CertFreeCertificateContext
+HeapAlloc
+GetProcessHeap
+E_FAIL
+E_OUTOFMEMORY
+S_OK
