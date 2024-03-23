@@ -6,5 +6,8 @@
       <Type Name="System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1[[Azure.CodeSigning.Dlib.Core.Models.Status,Azure.CodeSigning.Dlib.Core]]" Dynamic="Required All" />
       <Type Name="System.Text.Json.Serialization.Converters.EnumConverter`1[[Azure.CodeSigning.Dlib.Core.Models.Status,Azure.CodeSigning.Dlib.Core]]" Dynamic="Required All" />
     </Assembly>
+    <Assembly Name="System.Private.CoreLib">
+      <Type Name="System.Collections.Generic.List`1[[System.String,System.Private.CoreLib]]" Dynamic="Required All" />
+    </Assembly>
   </Application>
 </Directives>
