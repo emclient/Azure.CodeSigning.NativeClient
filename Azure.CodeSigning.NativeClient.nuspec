@@ -15,8 +15,8 @@
   </metadata>
 
   <files>
-    <file src="bin\Release\net7.0-windows\win-arm64\native\Azure.CodeSigning.NativeClient.dll" target="bin\arm64" />
-    <file src="bin\Release\net7.0-windows\win-x64\native\Azure.CodeSigning.NativeClient.dll" target="bin\x64" />
+    <file src="bin\Release\net8.0-windows\win-arm64\native\Azure.CodeSigning.NativeClient.dll" target="bin\arm64" />
+    <file src="bin\Release\net8.0-windows\win-x64\native\Azure.CodeSigning.NativeClient.dll" target="bin\x64" />
     <file src="LICENSE.md" target="" />
   </files>
 </package>

@@ -19,7 +19,7 @@ jobs:
       - name: Setup .NET
         uses: emclient/setup-dotnet@master
         with:
-          channel: "7.0"
+          channel: "8.0"
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
       - name: Install nbgv
